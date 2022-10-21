@@ -35,15 +35,12 @@ let btnNext = document.getElementById('next')
 function chiave(){
 
 }
-function inizializzaCard(){
-    let active = 0;
-    const cards = document.querySelectorAll('.col-12')
-    cards[active].classList.toggle('d-none')
-    btnNext.addEventListener('click',function(){
-        cards[active].classList.toggle('d-none')
-        active ++
-    })
+function checkSucc(){
+
 }
+
+
+
 function creaImmagineGrande(){
     chiave()
     for(let key in immagini){
@@ -51,15 +48,33 @@ function creaImmagineGrande(){
         let miodiv = document.createElement('div');
         miodiv.classList.add('col-12')
         let immagine = document.createElement('img')
+
         immagine.setAttribute('src' , immagini[key].url);
         primaRiga.append(miodiv);
         miodiv.append(immagine);
-        miodiv.classList.toggle('d-none')
-
+        miodiv.classList.add('d-none')
+        
 
     }
  
 
 }
+function inizializzaCard(miodiv){
+    let active = 0;
+    const cards = document.querySelectorAll('.col-12')
+    cards[active].classList.toggle('d-none')
+
+    btnNext.addEventListener('click',function(){
+        cards[active].classList.toggle('d-none')
+        active ++
+        cards[active].classList.toggle('d-none')
+        if(active === immagini.length -1){
+            active = 0;
+            azzera()
+        }
+        console.log(active)
+    })
+}
+
 creaImmagineGrande()
 inizializzaCard()
