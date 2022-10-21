@@ -31,6 +31,7 @@ const immagini = [
 </div> */
 const primaRiga = document.getElementById('primariga');
 let btnNext = document.getElementById('next')
+const btnBack = document.getElementById('back')
 
 function chiave(){
 
@@ -47,12 +48,23 @@ function creaImmagineGrande(){
         console.log(immagini[key])
         let miodiv = document.createElement('div');
         miodiv.classList.add('col-12')
+        miodiv.classList.add('slide')
         let immagine = document.createElement('img')
-
         immagine.setAttribute('src' , immagini[key].url);
         primaRiga.append(miodiv);
         miodiv.append(immagine);
         miodiv.classList.add('d-none')
+        let titolo = document.createElement('h1');
+        let sottotitolo = document.createElement('p');
+        titolo.innerHTML = immagini[key].title;
+        sottotitolo.innerHTML = immagini[key].description;
+        miodiv.append(titolo)
+        miodiv.append(sottotitolo)
+        miodiv.classList.add('positionRelative')
+        titolo.classList.add('positionAbsolute')
+        sottotitolo.classList.add('positionAbsolute')
+        sottotitolo.classList.add('margineGiu')
+        
         
 
     }
@@ -65,16 +77,72 @@ function inizializzaCard(miodiv){
     cards[active].classList.toggle('d-none')
 
     btnNext.addEventListener('click',function(){
-        cards[active].classList.toggle('d-none')
+       cards[active].classList.toggle('d-none')
+       if(active === immagini.length -1){
+        active = 0;
+
+    }else{
         active ++
+
+    }
         cards[active].classList.toggle('d-none')
-        if(active === immagini.length -1){
-            active = 0;
-            azzera()
+
+        console.log(active)
+    })
+    btnBack.addEventListener('click',function(){
+        let counter = 0;
+        cards[active].classList.toggle('d-none')
+        if(active === counter){
+            active = immagini.length -1;
+
+        }else{
+            active --
+
         }
+        cards[active].classList.toggle('d-none')
+
         console.log(active)
     })
 }
+function creaSlider(){
+    let slider = document.getElementById('slider')
+    for(let key in immagini){
+        let layover = document.createElement('div');
+        layover.classList.add('overlay')
+        let slide = document.createElement('div');
+        slide.classList.add('col');
+        slide.classList.add('slide')
+        let imgSlide = document.createElement('img');
+        imgSlide.classList.add('img-slide')
+        imgSlide.setAttribute('src' , immagini[key].url);
+        slider.append(slide);
+        slide.append(imgSlide);
+        slide.classList.toggle('slideLayover')
+
+        slide.addEventListener('mouseenter', function(){
+            slide.classList.remove('slideLayover')
+
+        })
+        slide.addEventListener('mouseleave', function(){
+            slide.classList.add('slideLayover')
+
+        })
+
+ 
+    }
+}
+creaSlider()
+function layover(){
+
+}
+function startSLider(){
+    let width = 264;
+    let pause = 3000;
+    let curerntSLide = 1;
+}
+
+
+
 
 creaImmagineGrande()
 inizializzaCard()
