@@ -1,0 +1,47 @@
+
+body{
+    height: 100vh;
+}
+img{
+    width: 100%;
+    height: 500px;
+
+}
+.bg-sweden{
+    background-image: url("http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg");
+    width: 800px;
+    height: 500px;
+    background-position: center;
+    background-size: contain;
+
+}
+.bg-sweden-mini{
+    background-image: url("http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg");
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+}
+.bg-peru{
+    background-image: url("http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg");
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+}
+.bg-cile{
+    background-image: url("http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg");
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+}
+.bg-argentina{
+    background-image: url("http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg");
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+}
+.bg-colombia{
+    background-image: url("http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg");
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+}
