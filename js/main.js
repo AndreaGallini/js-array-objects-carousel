@@ -75,7 +75,6 @@ function inizializzaCard(miodiv){
     let active = 0;
     const cards = document.querySelectorAll('.col-12')
     cards[active].classList.toggle('d-none')
-
     btnNext.addEventListener('click',function(){
        cards[active].classList.toggle('d-none')
        if(active === immagini.length -1){
@@ -103,6 +102,20 @@ function inizializzaCard(miodiv){
 
         console.log(active)
     })
+   setInterval(nextSlide,3000);
+    function nextSlide(){
+        cards[active].classList.toggle('d-none')
+
+        if(active === immagini.length -1){
+            active = 0;
+    
+        }else{
+            active ++
+        }
+        cards[active].classList.toggle('d-none')
+
+    }
+
 }
 function creaSlider(){
     let slider = document.getElementById('slider')
@@ -118,9 +131,10 @@ function creaSlider(){
         slider.append(slide);
         slide.append(imgSlide);
         slide.classList.toggle('slideLayover')
-
+        let active = 0 ;
         slide.addEventListener('mouseenter', function(){
             slide.classList.remove('slideLayover')
+    
 
         })
         slide.addEventListener('mouseleave', function(){
@@ -129,6 +143,9 @@ function creaSlider(){
         })
 
  
+    }
+    function autoblur(){
+        
     }
 }
 creaSlider()
